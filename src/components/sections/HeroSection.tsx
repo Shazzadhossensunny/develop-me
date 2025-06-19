@@ -1,12 +1,10 @@
 'use client';
-
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Twitter, Instagram, Facebook, Phone } from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
-const HeroSection: React.FC = () => {
+const HeroSection = () => {
   const socialLinks = [
     { icon: Twitter, href: '#', label: 'Twitter' },
     { icon: Instagram, href: '#', label: 'Instagram' },
@@ -27,7 +25,7 @@ const HeroSection: React.FC = () => {
       <div className="relative z-10 container mx-auto px-4 lg:px-16 py-20">
         {/* Main Heading - Increased spacing between lines */}
         <motion.div
-          className="w-full space-y-4 md:space-y-6 text-center lg:text-left" // Changed from space-y-6
+          className="w-full flex flex-col gap-14 space-y-4 md:space-y-6 text-center lg:text-left"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -62,7 +60,7 @@ const HeroSection: React.FC = () => {
 
             {/* Middle: Social Icons - Aligned to bottom */}
             <motion.div
-              className="hidden lg:flex flex-col justify-end" // Removed items-center, added justify-end
+              className="hidden lg:flex flex-col justify-end"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -102,15 +100,15 @@ const HeroSection: React.FC = () => {
 
           {/* Right: Text + Button - Added bottom padding */}
           <motion.div
-            className="w-full lg:w-3/4 flex flex-col justify-end space-y-6 text-center lg:text-left" // Added pb-4
+            className="w-full lg:w-3/4 flex flex-col justify-end space-y-6 text-center lg:text-left"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <div className="space-y-4 max-w-xl mx-auto lg:mx-0">
+            <div className="space-y-4 mx-auto lg:mx-0">
               <p className="text-base md:text-lg text-primary/80 font-sporting">
-                Building the world's best marketing websites for over a{' '}
-                <span className="font-bold text-primary">decade</span>.
+                Building the world's best marketing websites for over a
+                decade{' '}
               </p>
               <p className="text-base md:text-lg text-primary/80 font-sporting">
                 Your trusted partner for strategy, design, and dev.
