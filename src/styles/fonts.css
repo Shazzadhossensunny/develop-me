@@ -1,0 +1,51 @@
+/* Sporting Grotesque Font Family */
+@font-face {
+  font-family: 'Sporting Grotesque';
+  src: url('/fonts/SportingGrotesque-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sporting Grotesque';
+  src: url('/fonts/SportingGrotesque-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bw Gradual DEMO Font Family - For Logo */
+
+@font-face {
+  font-family: 'Bw Gradual DEMO';
+  src: url('/fonts/BwGradualDEMO-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fallback fonts for better loading experience */
+.font-sporting {
+  font-family:
+    'Sporting Grotesque',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'sans-serif';
+}
+
+.font-gradual {
+  font-family:
+    'Bw Gradual DEMO',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'sans-serif';
+}
