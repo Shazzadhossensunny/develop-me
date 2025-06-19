@@ -1,15 +1,9 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import {
-  ArrowDown,
-  ChevronLeft,
-  ChevronRight,
-  MoveLeft,
-  MoveRight,
-} from 'lucide-react';
+import { ArrowDown, MoveLeft, MoveRight } from 'lucide-react';
 
-const SkillsSlider = () => {
+const WhyChooseMeSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -138,7 +132,7 @@ const SkillsSlider = () => {
   );
 
   return (
-    <div className=" text-white min-h-screen overflow-hidden">
+    <div className=" text-white overflow-hidden">
       <div className="container-custom bg-black mx-auto  py-16 px-10  rounded-3xl relative">
         {/* Header Section */}
         <div className="mb-16">
@@ -248,4 +242,4 @@ const SkillsSlider = () => {
   );
 };
 
-export default SkillsSlider;
+export default WhyChooseMeSection;
