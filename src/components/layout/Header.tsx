@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon, ArrowRight } from 'lucide-react';
@@ -13,7 +13,7 @@ interface NavItem {
   isActive?: boolean;
 }
 
-const Header: React.FC = () => {
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
@@ -25,17 +25,12 @@ const Header: React.FC = () => {
     { label: 'Blog', href: '/blog' },
   ];
 
-  // Handle scroll effect
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
@@ -43,27 +38,18 @@ const Header: React.FC = () => {
         setIsOpen(false);
       }
     };
-
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isOpen]);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-
+    document.body.style.overflow = isOpen ? 'hidden' : 'unset';
     return () => {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
 
-  const toggleMobileMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMobileMenu = () => setIsOpen(!isOpen);
 
   return (
     <>
@@ -78,7 +64,7 @@ const Header: React.FC = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
-        <nav className="container-custom px-4 sm:px-6 lg:px-8">
+        <nav className="container-custom bg-[#00000003] rounded-b-[30px]">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <motion.div
@@ -90,7 +76,7 @@ const Header: React.FC = () => {
                 href="/"
                 className="font-gradual font-bold text-2xl lg:text-3xl text-primary"
               >
-                DEVLOP.ME
+                DEVELOP.ME
               </Link>
             </motion.div>
 
@@ -113,7 +99,6 @@ const Header: React.FC = () => {
                     )}
                   >
                     {item.label}
-                    {/* Active indicator */}
                     {item.isActive && (
                       <motion.div
                         className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
@@ -123,7 +108,6 @@ const Header: React.FC = () => {
                         transition={{ duration: 0.3 }}
                       />
                     )}
-                    {/* Hover indicator */}
                     <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                   </Link>
                 </motion.div>
@@ -135,13 +119,9 @@ const Header: React.FC = () => {
               {/* Theme Toggle */}
               <motion.button
                 onClick={toggleTheme}
-                className={cn(
-                  'p-2 rounded-full bg-primary/10 text-primary',
-                  'hover:bg-primary/20 transition-all duration-300'
-                )}
+                className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-all duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
               >
                 <AnimatePresence mode="wait">
                   {theme === 'light' ? (
@@ -168,13 +148,9 @@ const Header: React.FC = () => {
                 </AnimatePresence>
               </motion.button>
 
-              {/* CTA Button */}
+              {/* CTA */}
               <motion.button
-                className={cn(
-                  'flex items-center space-x-2 px-6 py-2 rounded-full',
-                  'bg-primary text-secondary hover:bg-primary/90',
-                  'transition-all duration-300 font-sporting font-medium group'
-                )}
+                className="flex items-center space-x-2 px-6 py-2 rounded-full bg-primary text-secondary hover:bg-primary/90 transition-all duration-300 font-sporting font-medium group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -186,15 +162,13 @@ const Header: React.FC = () => {
               </motion.button>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu */}
             <div className="lg:hidden flex items-center space-x-3">
-              {/* Mobile Theme Toggle */}
               <motion.button
                 onClick={toggleTheme}
-                className="p-2 rounded-full bg-primary/10 text-primary"
+                className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-all duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
               >
                 <AnimatePresence mode="wait">
                   {theme === 'light' ? (
@@ -223,13 +197,9 @@ const Header: React.FC = () => {
 
               <motion.button
                 onClick={toggleMobileMenu}
-                className={cn(
-                  'p-2 rounded-full bg-primary/10 text-primary',
-                  'hover:bg-primary/20 transition-all duration-300'
-                )}
+                className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-all duration-300"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                aria-label="Toggle mobile menu"
                 data-mobile-menu
               >
                 <AnimatePresence mode="wait">
@@ -272,10 +242,7 @@ const Header: React.FC = () => {
             transition={{ duration: 0.3 }}
             data-mobile-menu
           >
-            {/* Backdrop */}
             <div className="absolute inset-0 bg-primary/20 backdrop-blur-sm" />
-
-            {/* Menu Content */}
             <motion.div
               className="absolute top-16 right-4 left-4 bg-secondary rounded-2xl shadow-2xl border border-primary/10 overflow-hidden"
               initial={{ opacity: 0, scale: 0.95, y: -20 }}
@@ -284,7 +251,6 @@ const Header: React.FC = () => {
               transition={{ duration: 0.3, type: 'spring', stiffness: 200 }}
             >
               <div className="p-6 space-y-6">
-                {/* Navigation Links */}
                 <nav className="space-y-4">
                   {navItems.map((item, index) => (
                     <motion.div
@@ -308,8 +274,6 @@ const Header: React.FC = () => {
                     </motion.div>
                   ))}
                 </nav>
-
-                {/* Mobile CTA */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -318,11 +282,7 @@ const Header: React.FC = () => {
                 >
                   <button
                     onClick={() => setIsOpen(false)}
-                    className={cn(
-                      'w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-full',
-                      'bg-primary text-secondary hover:bg-primary/90',
-                      'transition-all duration-300 font-sporting font-medium group'
-                    )}
+                    className="w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-full bg-primary text-secondary hover:bg-primary/90 transition-all duration-300 font-sporting font-medium group"
                   >
                     <span>Start Project</span>
                     <ArrowRight
