@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ThemeProvider } from '@/context/ThemeContext';
 import Header from './Header';
+import Footer from './Footer';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -24,6 +25,7 @@ export default function Layout({ children, className = '' }: LayoutProps) {
         >
           {children}
         </motion.main>
+        <Footer />
       </div>
     </ThemeProvider>
   );
