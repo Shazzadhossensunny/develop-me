@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon, ArrowRight } from 'lucide-react';
+import { Menu, X, Sun, Moon, ArrowRight, MoveRight } from 'lucide-react';
 import { useTheme } from '@/context/ThemeContext';
 import { cn } from '@/lib/utils';
 
@@ -80,86 +80,86 @@ const Header = () => {
               </Link>
             </motion.div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      'text-sm font-sporting font-medium transition-colors duration-300 relative group',
-                      item.isActive
-                        ? 'text-primary'
-                        : 'text-primary/70 hover:text-primary'
-                    )}
+            <div className="flex items-center gap-4">
+              {/* Desktop Navigation */}
+              <div className="hidden lg:flex items-center space-x-8">
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                    {item.label}
-                    {item.isActive && (
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        'text-sm font-sporting font-medium transition-colors duration-300 relative group',
+                        item.isActive
+                          ? 'text-primary'
+                          : 'text-primary/70 hover:text-primary'
+                      )}
+                    >
+                      {item.label}
+                      {item.isActive && (
+                        <motion.div
+                          className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
+                          layoutId="activeTab"
+                          initial={{ scaleX: 0 }}
+                          animate={{ scaleX: 1 }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      )}
+                      <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Desktop Actions */}
+              <div className="hidden lg:flex items-center space-x-4">
+                {/* Theme Toggle */}
+                <motion.button
+                  onClick={toggleTheme}
+                  className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-all duration-300"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <AnimatePresence mode="wait">
+                    {theme === 'light' ? (
                       <motion.div
-                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
-                        layoutId="activeTab"
-                        initial={{ scaleX: 0 }}
-                        animate={{ scaleX: 1 }}
+                        key="moon"
+                        initial={{ rotate: 180, opacity: 0 }}
+                        animate={{ rotate: 0, opacity: 1 }}
+                        exit={{ rotate: -180, opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                      />
+                      >
+                        <Moon size={18} />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="sun"
+                        initial={{ rotate: -180, opacity: 0 }}
+                        animate={{ rotate: 0, opacity: 1 }}
+                        exit={{ rotate: 180, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Sun size={18} />
+                      </motion.div>
                     )}
-                    <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
+                  </AnimatePresence>
+                </motion.button>
 
-            {/* Desktop Actions */}
-            <div className="hidden lg:flex items-center space-x-4">
-              {/* Theme Toggle */}
-              <motion.button
-                onClick={toggleTheme}
-                className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <AnimatePresence mode="wait">
-                  {theme === 'light' ? (
-                    <motion.div
-                      key="moon"
-                      initial={{ rotate: 180, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: -180, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Moon size={18} />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="sun"
-                      initial={{ rotate: -180, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: 180, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Sun size={18} />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.button>
+                {/* CTA */}
+                <motion.button
+                  className="flex items-center space-x-2 py-2 pr-3  bg-primary text-secondary border border-black rounded-full hover:bg-primary/90 transition-all duration-300 font-sporting font-medium group"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <MoveRight className="w-10 h-10 p-2 border border-primary rounded-full text-primary group-hover:translate-x-1 transition-transform duration-300" />
 
-              {/* CTA */}
-              <motion.button
-                className="flex items-center space-x-2 px-6 py-2 rounded-full bg-primary text-secondary hover:bg-primary/90 transition-all duration-300 font-sporting font-medium group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span>Start Project</span>
-                <ArrowRight
-                  size={16}
-                  className="group-hover:translate-x-1 transition-transform duration-300"
-                />
-              </motion.button>
+                  <span>Start Project</span>
+                </motion.button>
+              </div>
             </div>
 
             {/* Mobile Menu */}

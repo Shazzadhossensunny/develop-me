@@ -118,15 +118,12 @@ const HeroSection = () => {
             <div>
               <motion.button
                 className={cn(
-                  'flex items-center space-x-3 px-8 py-4 rounded-full border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-secondary transition-all duration-300 font-sporting font-medium mx-auto lg:mx-0 group'
+                  'flex items-center space-x-3 pr-8 py-3 rounded-full border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-secondary transition-all duration-300 font-sporting font-medium mx-auto lg:mx-0 group'
                 )}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Phone
-                  size={20}
-                  className="group-hover:rotate-12 transition-transform duration-300"
-                />
+                <Phone className="w-10 h-10 p-2 border border-primary rounded-full text-primary group-hover:translate-x-1 transition-transform duration-300" />
                 <span>Schedule a Call</span>
               </motion.button>
             </div>

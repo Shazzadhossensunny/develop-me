@@ -90,15 +90,12 @@ const ContactSection = () => {
             <div>
               <motion.button
                 className={cn(
-                  'flex items-center space-x-3 px-8 py-4 rounded-full border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-secondary transition-all duration-300 font-sporting font-medium mx-auto lg:mx-0 group'
+                  'flex items-center space-x-3 pr-8 py-3 rounded-full border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-secondary transition-all duration-300 font-sporting font-medium mx-auto lg:mx-0 group'
                 )}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Phone
-                  size={20}
-                  className="group-hover:rotate-12 transition-transform duration-300"
-                />
+                <Phone className="w-10 h-10 p-2 border border-primary rounded-full text-primary group-hover:translate-x-1 transition-transform duration-300" />
                 <span>Schedule a Call</span>
               </motion.button>
             </div>
@@ -169,9 +166,9 @@ const ContactSection = () => {
                   <button
                     type="button"
                     onClick={handleSubmit}
-                    className="flex items-center gap-2 text-white border border-white px-4 py-3 rounded-full font-normal"
+                    className="flex items-center gap-2 text-white border border-white pr-4 py-3 rounded-full font-normal"
                   >
-                    <Send className="w-5 h-5" />
+                    <Send className="w-6 h-6 p-1 border border-primary rounded-full text-primary group-hover:translate-x-1 transition-transform duration-300" />
                     Send
                   </button>
 
@@ -179,9 +176,9 @@ const ContactSection = () => {
 
                   <button
                     type="button"
-                    className="flex items-center gap-2 border text-white border-white px-6 py-3 rounded-full "
+                    className="flex items-center gap-2 border text-white border-white pr-4 py-3 rounded-full "
                   >
-                    <Mail className="w-5 h-5" />
+                    <Mail className="w-6 h-6 p-1 border border-primary rounded-full text-primary group-hover:translate-x-1 transition-transform duration-300" />
                     Contact me
                   </button>
                 </motion.div>
