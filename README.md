@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 develop-me
 
-## Getting Started
+[![Live Site](https://img.shields.io/badge/Live_Site-develop--me--neon.vercel.app-00c6ff?style=for-the-badge&logo=vercel)](https://develop-me-neon.vercel.app/)
+[![GitHub](https://img.shields.io/badge/Source_Code-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/Shazzadhossensunny/develop-me)
 
-First, run the development server:
+A sleek, responsive personal portfolio built with **Next.js 15**, **Tailwind CSS**, **Framer Motion**, and more.
+Designed to showcase projects, contact information, and provide a smooth user experience with subtle animations and dark mode support.
+
+---
+
+## 🌟 Features
+
+- ✅ **Next.js 15** — App Router structure with modern architecture
+- 🎨 **Tailwind CSS(3.4.1)** — Utility-first styling with custom responsive design
+- 💫 **Framer Motion** — Animations for sections and interactions
+- 🌘 **Dark Mode** — Stored in `localStorage` for user preference persistence
+- 🎠 **Custom Slider** — Embla Carousel-based responsive slider for testimonials or project reviews
+- 📱 Fully responsive — Works across all devices
+- 🔧 **Lucide Icons** — Feather-style icon system
+
+---
+
+## 📦 Technologies & Packages
+
+| Package                    | Purpose                                       |
+| -------------------------- | --------------------------------------------- |
+| `next`                     | React Framework                               |
+| `react`, `react-dom`       | Core React Libraries                          |
+| `tailwindcss`              | Utility-first CSS framework                   |
+| `postcss`, `autoprefixer`  | Tailwind build tools                          |
+| `framer-motion`            | Animations                                    |
+| `lucide-react`             | Modern icon set                               |
+| `clsx`                     | Conditional class name merging                |
+| `tailwind-merge`           | Smart merging of conflicting Tailwind classes |
+| `typescript`               | Static typing                                 |
+| `jest`, `@testing-library` | Unit & integration testing tools              |
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repo
+
+```bash
+git clone https://github.com/Shazzadhossensunny/develop-me.git
+cd develop-me
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Run Locally
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧪 Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Script   | Purpose                    |
+| -------- | -------------------------- |
+| `dev`    | Start local dev server     |
+| `build`  | Create production build    |
+| `start`  | Start prod server          |
+| `lint`   | Lint all files             |
+| `format` | Format code using Prettier |
+| `test`   | Run tests with Jest        |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📌 Live Demo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+👉 **[Visit develop-me on Vercel](https://develop-me-neon.vercel.app/)**
+👉 **[GitHub Repository](https://github.com/Shazzadhossensunny/develop-me)**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ✨ Credits
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Developed with ❤️ by [@Shazzadhossensunny](https://github.com/Shazzadhossensunny)

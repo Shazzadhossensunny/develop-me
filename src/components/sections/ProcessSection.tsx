@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowDown, ArrowRight, MoveRight } from 'lucide-react';
+import { ArrowDown, MoveRight } from 'lucide-react';
 
 const ProcessSection = () => {
   // Skills data

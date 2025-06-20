@@ -10,9 +10,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: 'hsl(var(--primary))', // Example: --primary: 0 0% 0%; (black)
-        secondary: 'hsl(var(--secondary))', // Example: --secondary: 0 0% 100%; (white)
-        accent: 'hsl(var(--accent))', // Example: --accent: 80 100% 60%;
+        primary: 'hsl(var(--primary))',
+        secondary: 'hsl(var(--secondary))',
+        accent: 'hsl(var(--accent))',
         'accent-light': 'hsl(var(--accent-light))',
         background: {
           light: 'hsl(var(--background-light))',

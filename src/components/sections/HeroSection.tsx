@@ -107,7 +107,7 @@ const HeroSection = () => {
           >
             <div className="space-y-4 mx-auto lg:mx-0">
               <p className="text-base md:text-lg text-primary/80 font-sporting">
-                Building the world's best marketing websites for over a
+                Building the worlds best marketing websites for over a
                 decade{' '}
               </p>
               <p className="text-base md:text-lg text-primary/80 font-sporting">

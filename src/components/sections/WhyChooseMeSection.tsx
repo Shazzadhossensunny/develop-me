@@ -86,11 +86,6 @@ const WhyChooseMeSection = () => {
     setIsAutoPlaying(false);
   };
 
-  const getCurrentSkills = () => {
-    const startIndex = currentSlide * visibleCards;
-    return skills.slice(startIndex, startIndex + visibleCards);
-  };
-
   // Icon component
   const SkillIcon = ({ className = '' }) => (
     <svg
@@ -201,7 +196,7 @@ const WhyChooseMeSection = () => {
                     )
                     .map((skill, cardIndex) => {
                       const globalIndex = slideIndex * visibleCards + cardIndex;
-                      const isActive = slideIndex === currentSlide;
+                      // const isActive = slideIndex === currentSlide;
 
                       return (
                         <motion.div

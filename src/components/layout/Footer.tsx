@@ -42,12 +42,6 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
     },
   ];
 
-  const socialIcons = [
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-    { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-  ];
-
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
